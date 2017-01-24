@@ -9,23 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet private weak var displayLabel: UILabel!
     
-    var inTheMiddleOfTyping = false
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+    private var inTheMiddleOfTyping = false
     
-    @IBAction func digitClick(_ sender: UIButton) {
-        let digit = sender.currentTitle!
-        displayLabel.text = (inTheMiddleOfTyping) ? (displayLabel.text! + digit) : digit
-        inTheMiddleOfTyping = true
-    }
-    
-    
-    var displayValue: Double {
+    private var displayValue: Double {
         get {
             return Double(displayLabel.text!)!
         }
@@ -34,13 +22,33 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func performOperation(_ sender: UIButton) {
-        inTheMiddleOfTyping = false
-        if let mathematicalSymbol = sender.currentTitle {
-            if mathematicalSymbol == "√" {
-                displayValue = sqrt(displayValue)
-            }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction private func digitClick(_ sender: UIButton) {
+        let digit = sender.currentTitle!
+        displayLabel.text = (inTheMiddleOfTyping) ? (displayLabel.text! + digit) : digit
+        inTheMiddleOfTyping = true
+    }
+    
+    private var brain = CalculatorModel()
+    @IBAction private func performOperation(_ sender: UIButton) {
+        if inTheMiddleOfTyping {
+            brain.setOperand(operand: displayValue)
+            inTheMiddleOfTyping = false
         }
+        
+        if let mathematicalSymbol = sender.currentTitle {
+            brain.performOperation(symbol: mathematicalSymbol)
+        }
+        
+        displayValue = brain.result
+    }
+    
+    @IBAction func clearDisplayLabel(_ sender: Any) {
+        displayValue = 0
     }
 }
 
