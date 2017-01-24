@@ -296,6 +296,9 @@
                                                 <state key="normal" title=".">
                                                     <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="digitClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pBO-3s-omg"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L61-RS-yWP">
                                                 <rect key="frame" x="241" y="0.0" width="79" height="79"/>
