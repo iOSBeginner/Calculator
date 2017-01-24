@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     
     @IBAction func clearDisplayLabel(_ sender: Any) {
         displayValue = 0
+        brain.clear()
     }
 }
 

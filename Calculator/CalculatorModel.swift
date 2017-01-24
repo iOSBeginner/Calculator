@@ -31,6 +31,10 @@ class CalculatorModel {
         }
     }
     
+    func clear() {
+        pending = nil
+    }
+    
     //MARK: - Operationa
     
     private var operations: Dictionary<String, Operation> = [
@@ -60,6 +64,8 @@ class CalculatorModel {
             pending = nil
         }
     }
+    
+    //MARK: Pending
     
     private var pending: pendingBinaryOperationInfo?
     
