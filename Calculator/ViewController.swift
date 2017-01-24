@@ -24,6 +24,15 @@ class ViewController: UIViewController {
         inTheMiddleOfTyping = true
     }
     
+    
+    var displayValue: Double {
+        get {
+            return Double(displayLabel.text!)!
+        }
+        set {
+            displayLabel.text = String(newValue)
+        }
+    }
     }
 }
 
