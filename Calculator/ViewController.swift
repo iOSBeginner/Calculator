@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
     
+    var inTheMiddleOfTyping = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,8 +20,10 @@ class ViewController: UIViewController {
     
     @IBAction func digitClick(_ sender: UIButton) {
         let digit = sender.currentTitle!
-        
-        displayLabel.text = (displayLabel.text! == "0") ? digit : (displayLabel.text! + digit)
+        displayLabel.text = (inTheMiddleOfTyping) ? (displayLabel.text! + digit) : digit
+        inTheMiddleOfTyping = true
+    }
+    
     }
 }
 
