@@ -33,6 +33,14 @@ class ViewController: UIViewController {
             displayLabel.text = String(newValue)
         }
     }
+    
+    @IBAction func performOperation(_ sender: UIButton) {
+        inTheMiddleOfTyping = false
+        if let mathematicalSymbol = sender.currentTitle {
+            if mathematicalSymbol == "√" {
+                displayValue = sqrt(displayValue)
+            }
+        }
     }
 }
 
