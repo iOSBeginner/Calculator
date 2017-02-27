@@ -50,4 +50,22 @@ class CalculatorTests: XCTestCase {
         brain.performOperation(symbol: "=")
         XCTAssert(brain.result == 12)
     }
+    
+    func testBinaryOperationMultiplication() {
+        let brain = CalculatorModel()
+        brain.setOperand(operand: 23)
+        brain.performOperation(symbol: "×")
+        brain.setOperand(operand: 11)
+        brain.performOperation(symbol: "=")
+        XCTAssert(brain.result == 253)
+    }
+    
+    func testBinaryOperationDivision() {
+        let brain = CalculatorModel()
+        brain.setOperand(operand: 91)
+        brain.performOperation(symbol: "/")
+        brain.setOperand(operand: 13)
+        brain.performOperation(symbol: "=")
+        XCTAssert(brain.result == 7)
+    }
 }
