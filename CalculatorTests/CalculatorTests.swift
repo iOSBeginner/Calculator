@@ -33,4 +33,12 @@ class CalculatorTests: XCTestCase {
         }
     }
     
+    func testBinaryOperationPlus() {
+        let brain = CalculatorModel()
+        brain.setOperand(operand: 4)
+        brain.performOperation(symbol: "+")
+        brain.setOperand(operand: 8)
+        brain.performOperation(symbol: "=")
+        XCTAssert(brain.result == 12)
+    }
 }
